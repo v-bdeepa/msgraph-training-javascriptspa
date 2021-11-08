@@ -7,6 +7,14 @@
 const msalClient = new msal.PublicClientApplication(msalConfig);
 // </authInitSnippet>
 
+// <checkAuthSnippet>
+// Check for an already logged-in user
+const account = msalClient.getActiveAccount();
+if (account) {
+  initializeGraphClient(msalClient, account, msalRequest.scopes);
+}
+// </checkAuthSnippet>
+
 // <signInSnippet>
 async function signIn() {
   // Login
@@ -15,11 +23,13 @@ async function signIn() {
     const authResult = await msalClient.loginPopup(msalRequest);
     console.log('id_token acquired at: ' + new Date().toString());
 
+    msalClient.setActiveAccount(authResult.account);
+
     // Initialize the Graph client
     initializeGraphClient(msalClient, authResult.account, msalRequest.scopes);
 
     // Get the user's profile from Graph
-    user = await getUser();
+    const user = await getUser();
     // Save the profile in session
     sessionStorage.setItem('graphUser', JSON.stringify(user));
     updatePage(Views.home);
