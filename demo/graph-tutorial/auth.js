@@ -1,21 +1,12 @@
-// Copyright (c) Microsoft Corporation.
-// Licensed under the MIT License.
-
-// <authInitSnippet>
 // Create the main MSAL instance
 // configuration parameters are located in config.js
 const msalClient = new msal.PublicClientApplication(msalConfig);
-// </authInitSnippet>
 
-// <checkAuthSnippet>
 // Check for an already logged-in user
 const account = msalClient.getActiveAccount();
 if (account) {
   initializeGraphClient(msalClient, account, msalRequest.scopes);
 }
-// </checkAuthSnippet>
-
-// <signInSnippet>
 async function signIn() {
   // Login
   try {
@@ -41,11 +32,8 @@ async function signIn() {
     });
   }
 }
-// </signInSnippet>
 
-// <signOutSnippet>
 function signOut() {
   sessionStorage.removeItem('graphUser');
   msalClient.logout();
 }
-// </signOutSnippet>

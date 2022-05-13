@@ -1,8 +1,3 @@
-// Copyright (c) Microsoft Corporation.
-// Licensed under the MIT License.
-/* spell-checker: disable */
-
-// <zoneMappingsSnippet>
 // Basic lookup for mapping Windows time zone identifiers to
 // IANA identifiers
 // Mappings taken from
@@ -150,4 +145,3 @@ const zoneMappings = {
 function getIanaFromWindows(windowsZoneName) {
   return zoneMappings[windowsZoneName] || "Etc/GMT";
 }
-// </zoneMappingsSnippet>

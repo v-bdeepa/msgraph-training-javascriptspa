@@ -1,10 +1,6 @@
-// Copyright (c) Microsoft Corporation.
-// Licensed under the MIT License.
-
-// <msalConfigSnippet>
 const msalConfig = {
   auth: {
-    clientId: 'YOUR_APP_ID_HERE',
+    clientId: 'c7ccdc96-b6b9-4209-b4f0-3fc122424387',
     redirectUri: 'http://localhost:8080'
   }
 };
@@ -16,4 +12,3 @@ const msalRequest = {
     'calendars.readwrite'
   ]
 }
-// </msalConfigSnippet>
